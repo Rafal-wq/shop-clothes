@@ -2,7 +2,23 @@
 
 ## TABLE OF CONTENT
 
-Here will be
+- ABOUT
+- ENDPOINTS
+  - Items /clothes/
+    - GET
+    - POST
+    - PUT
+    - DELETE
+  - Clients /users/
+    - GET
+    - POST
+    - PUT
+    - DELETE
+  - Staff /workers/
+    - GET
+    - POST
+    - PUT
+    - DELETE
 
 ## About
 Shop (goods, staff, customers), question: a buyer has come, wants to buy a specific outfit of clothes for such a size, to highlight what can be offered to him.
@@ -124,7 +140,7 @@ www.shop.com/pants/?id=123e4567-e89b-12d3-a456-426614174000 </br>
 
 
 ## Clients of shop endpoints
-GET / user (shows all users)</br>
+GET / users (shows all users)</br>
 Example :
 www.shop.com/users </br>
 Returns :
@@ -219,7 +235,7 @@ www.shop.com/user/?id=123e4567-e89b-12d3-a456-426614174000 </br>
 - 400 Bad request /error request on client side/
 
 
-## Clients of shop endpoints
+## Workers of shop endpoints
 GET / staff (shows all workers)</br>
 Example :
 www.shop.com/staff </br>
