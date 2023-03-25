@@ -3,6 +3,9 @@
 ## TABLE OF CONTENT
 
 - ABOUT
+- RUNNING THE APPLICATION
+- JWT CONFIGURATION
+  - Endpoints of authentication
 - ENDPOINTS
   - Items /clothes/
     - GET
@@ -23,6 +26,16 @@
 ## About
 Shop (goods, staff, customers), question: a buyer has come, wants to buy a specific outfit of clothes for such a size, to highlight what can be offered to him.
 
+#### Clone application
+```
+$ git clone https://github.com/Rafal-wq/shop-clothes.git
+```
+
+## RUNNING THE APPLICATION
+To run the application :
+```
+$ node index.js
+```
 
 ## ITEMS ENDPOINTS
 
@@ -134,7 +147,7 @@ www.shop.com/pants/?id=123e4567-e89b-12d3-a456-426614174000 </br>
 }
 ```
 #### Response code to verb DELETE :
-- 201 OK /item has been removed/
+- 200 OK /item has been removed/
 - 400 Bad request /error request on client side/
 
 
@@ -231,7 +244,7 @@ www.shop.com/user/?id=123e4567-e89b-12d3-a456-426614174000 </br>
 }
 ```
 #### Response code to verb DELETE :
-- 201 OK /item has been removed/
+- 200 OK /item has been removed/
 - 400 Bad request /error request on client side/
 
 
@@ -327,5 +340,5 @@ www.shop.com/staff/?id=123e4567-e89b-12d3-a456-426614174000 </br>
 }
 ```
 #### Response code to verb DELETE :
-- 201 OK /item has been removed/
+- 200 OK /item has been removed/
 - 400 Bad request /error request on client side/
