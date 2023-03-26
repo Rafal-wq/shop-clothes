@@ -4,8 +4,7 @@
 
 - ABOUT
 - RUNNING THE APPLICATION
-- JWT CONFIGURATION
-  - Endpoints of authentication
+- JWT CONFIGURATION AND ENDPOINTS
 - ENDPOINTS
   - Items /clothes/
     - GET
@@ -26,16 +25,71 @@
 ## About
 Shop (goods, staff, customers), question: a buyer has come, wants to buy a specific outfit of clothes for such a size, to highlight what can be offered to him.
 
+## RUNNING THE APPLICATION
+
 #### Clone application
 ```
 $ git clone https://github.com/Rafal-wq/shop-clothes.git
 ```
 
-## RUNNING THE APPLICATION
-To run the application :
+#### To run the application :
 ```
 $ node index.js
 ```
+You can also use script contained in package.json file.
+
+## JWT CONFIGURATION
+
+### Endpoints of authentication
+Disclaimer : </br>
+Expiration of token is set on 3600 seconds (one hour) and refresh token on 86400 sec (24 hours). You can change this in "config.json" file.
+#### User login
+- POST</br>
+Link : http://0.0.0.0:3000/api/login </br>
+
+In JSON insert (POST method) :
+```
+{
+	"email": "test@google.com",
+	"name": "Rafal"
+}
+```
+Data of body above is an example. You can send any data in email and name fields. </br>
+<p>
+<a ><img src="https://i.ibb.co/kh5SNjx/Login.png" alt="Login of new user"/></a>
+</p>
+
+
+#### Checking the token
+- GET </br>
+Link : http://0.0.0.0:3000/api/secure </br>
+
+In Headers section insert two keys and values : (GET method) :
+- Content-Type(key) ; application/JSON(value)
+- x-access-token(key) ; getting token(value)
+<p>
+<a ><img src="https://i.ibb.co/1qVKXnd/Token-proper.png" alt=„Login with good token” /></a>
+</p> </br>
+
+Login with bad token :
+<p>
+<a ><img src="https://i.ibb.co/SRggmC8/Token-bad.png" alt=„Login with bad token” /></a>
+</p>
+
+#### Getting new token
+- POST
+Link : http://0.0.0.0:3000/api/token </br>
+In JSON insert (POST method) :
+```
+{
+	"email": "test@google.com",
+	"name": "Rafal",
+	"refreshToken": "getting refresh token"
+}
+```
+<p>
+<a ><img src="https://i.ibb.co/Y0D0t8Q/New-token.png" alt=„Getting new token” /></a>
+</p>
 
 ## ITEMS ENDPOINTS
 
