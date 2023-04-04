@@ -3,6 +3,10 @@
 ## TABLE OF CONTENT
 
 - ABOUT
+- RUNNING THE APPLICATION
+- DATABASE CONFIGURATION
+  - Schema
+  - SQL commands
 - ENDPOINTS
   - Items /clothes/
     - GET
@@ -22,6 +26,89 @@
 
 ## About
 Shop (goods, staff, customers), question: a buyer has come, wants to buy a specific outfit of clothes for such a size, to highlight what can be offered to him.
+
+## RUNNING THE APPLICATION
+
+#### Clone application
+```
+$ git clone https://github.com/Rafal-wq/shop-clothes.git
+```
+
+#### To run the application :
+```
+$ node index.js
+```
+You can also use script contained in package.json file.
+
+## DATABASE CONFIGURATION
+
+### Schema of database
+
+<p>
+<a ><img src="https://i.ibb.co/HnqhTZ2/SQL-schema-PHP.png" alt="Schema of database"/></a>
+</p>
+
+### SQL commands :
+
+```
+$
+CREATE TABLE workers (
+	worker_id INT PRIMARY KEY,
+	first_name VARCHAR (50) NOT NULL,
+	last_name VARCHAR (50) NOT NULL,
+	email VARCHAR (255) NOT NULL UNIQUE,
+	phone VARCHAR (25),
+	isActive tinyint NOT NULL,
+	store_id INT NOT NULL
+);
+CREATE TABLE category (
+	category_id INT PRIMARY KEY,
+	category_name VARCHAR (255) NOT NULL
+);
+CREATE TABLE item_brand (
+	brand_id INT PRIMARY KEY,
+	brand_name VARCHAR (255) NOT NULL
+);
+CREATE TABLE items (
+	item_id INT PRIMARY KEY,
+	name VARCHAR (45) NOT NULL,
+	brand_id INT NOT NULL,
+	category_id INT NOT NULL,
+	size INT NOT NULL,
+	FOREIGN KEY (category_id)
+        REFERENCES category (category_id)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (brand_id)
+        REFERENCES item_brand (brand_id)
+        ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE TABLE customer (
+	customer_id INT PRIMARY KEY,
+	first_name VARCHAR (255) NOT NULL,
+	last_name VARCHAR (255) NOT NULL,
+	phone VARCHAR (25),
+	email VARCHAR (255) NOT NULL,
+	street VARCHAR (255),
+	city VARCHAR (50),
+	zip_code VARCHAR (5)
+);
+CREATE TABLE orders (
+	order_id INT PRIMARY KEY,
+	order_date DATE NOT NULL,
+	item_id INT,
+	worker_id INT NOT NULL,
+	customer_id INT,
+	FOREIGN KEY (item_id)
+        REFERENCES items (item_id)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (worker_id)
+        REFERENCES workers (worker_id)
+        ON DELETE NO ACTION ON UPDATE NO ACTION,
+	FOREIGN KEY (customer_id)
+        REFERENCES customer (customer_id)
+        ON DELETE CASCADE ON UPDATE CASCADE
+);
+```
 
 
 ## ITEMS ENDPOINTS
