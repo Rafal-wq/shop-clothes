@@ -45,7 +45,7 @@ You can also use script contained in package.json file.
 ### Schema of database
 
 <p>
-<a ><img src="https://i.ibb.co/HnqhTZ2/SQL-schema-PHP.png" alt="Schema of database"/></a>
+<a ><img src="https://i.ibb.co/sbW9WP5/SQL-schema-new.png" alt="Schema of database"/></a>
 </p>
 
 ### SQL commands :
@@ -53,27 +53,26 @@ You can also use script contained in package.json file.
 ```
 $
 CREATE TABLE workers (
-	worker_id INT PRIMARY KEY,
+	worker_id VARCHAR (36) PRIMARY KEY,
 	first_name VARCHAR (50) NOT NULL,
 	last_name VARCHAR (50) NOT NULL,
 	email VARCHAR (255) NOT NULL UNIQUE,
 	phone VARCHAR (25),
-	isActive tinyint NOT NULL,
-	store_id INT NOT NULL
+	isActive tinyint NOT NULL
 );
 CREATE TABLE category (
-	category_id INT PRIMARY KEY,
+	category_id VARCHAR (36) PRIMARY KEY,
 	category_name VARCHAR (255) NOT NULL
 );
 CREATE TABLE item_brand (
-	brand_id INT PRIMARY KEY,
+	brand_id VARCHAR (36) PRIMARY KEY,
 	brand_name VARCHAR (255) NOT NULL
 );
 CREATE TABLE items (
-	item_id INT PRIMARY KEY,
+	item_id VARCHAR (36) PRIMARY KEY,
 	name VARCHAR (45) NOT NULL,
-	brand_id INT NOT NULL,
-	category_id INT NOT NULL,
+	brand_id VARCHAR (36) NOT NULL,
+	category_id VARCHAR (36) NOT NULL,
 	size INT NOT NULL,
 	FOREIGN KEY (category_id)
         REFERENCES category (category_id)
@@ -83,7 +82,7 @@ CREATE TABLE items (
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE customer (
-	customer_id INT PRIMARY KEY,
+	customer_id VARCHAR (36) PRIMARY KEY,
 	first_name VARCHAR (255) NOT NULL,
 	last_name VARCHAR (255) NOT NULL,
 	phone VARCHAR (25),
@@ -93,11 +92,11 @@ CREATE TABLE customer (
 	zip_code VARCHAR (5)
 );
 CREATE TABLE orders (
-	order_id INT PRIMARY KEY,
+	order_id VARCHAR (36) PRIMARY KEY,
 	order_date DATE NOT NULL,
-	item_id INT,
-	worker_id INT NOT NULL,
-	customer_id INT,
+	item_id VARCHAR (36),
+	worker_id VARCHAR (36) NOT NULL,
+	customer_id VARCHAR (36),
 	FOREIGN KEY (item_id)
         REFERENCES items (item_id)
         ON DELETE CASCADE ON UPDATE CASCADE,
