@@ -226,44 +226,52 @@ www.shop.com/pants/?id=123e4567-e89b-12d3-a456-426614174000 </br>
 
 
 ## Clients of shop endpoints
-GET / users (shows all users)</br>
+GET user/users (shows all users)</br>
 Example :
-www.shop.com/users </br>
+www.shop.com/user/users </br>
 Returns :
 ```
 [
-{
-"userId": "1",
-"name": "aaaaaaaaaa",
-"surname": "bbbbbbb",
-"age": "33"
-},
-{
-"userId": "2",
-"name": "cccccccccc",
-"surname": "dddddddd",
-"age": "34"
-},
-{
-"userId": "3",
-"name": "eeeeeeee",
-"surname": "ffffffff",
-"age": "35"
-}
+	{
+		"customer_id": "1a06c740-99f4-49b5-b348-797315af7ff1",
+		"first_name": "test2",
+		"last_name": "test2",
+		"phone": "222333444",
+		"email": "example2@gmail.com",
+		"street": "test2",
+		"city": "test2",
+		"zip_code": "23456"
+	},
+	{
+		"customer_id": "5bcd4cbc-aa38-45f2-91cd-1b9ab2072f58",
+		"first_name": "test",
+		"last_name": "test",
+		"phone": "111222333",
+		"email": "example@gmail.com",
+		"street": "test",
+		"city": "test",
+		"zip_code": "12345"
+	}
 ]
 ```
+<p>
+<a ><img src="https://i.ibb.co/Yf1FGcH/getAll.png" alt="Getting all users data"/></a>
+</p>
 
-
-GET / user/:id</br>
+GET user/users/:id</br>
 Example :
-www.shop.com/pants/?id=123e4567-e89b-12d3-a456-426614174000 </br>
+www.shop.com/user/users/1a06c740-99f4-49b5-b348-797315af7ff1 </br>
 
 ```
 {
-  "userId": "123e4567-e89b-12d3-a456-426614174000",
-  "name": "aaaaaaaaaa",
-  "surname": "bbbbbbb",
-  "age": "33"
+	"customer_id": "1a06c740-99f4-49b5-b348-797315af7ff1",
+	"first_name": "test2",
+	"last_name": "test2",
+	"phone": "222333444",
+	"email": "example2@gmail.com",
+	"street": "test2",
+	"city": "test2",
+	"zip_code": "23456"
 }
 ```
 
@@ -271,7 +279,6 @@ www.shop.com/pants/?id=123e4567-e89b-12d3-a456-426614174000 </br>
 - 200 OK /you get correct response/
 - 400 Bad request /error request on client side/
 - 500 Internal server error
-- 501 Item not implemented
 
 
 ### Items POST verb
@@ -281,10 +288,13 @@ Example:
 www.shop.com/user </br>
 ```
 {
-    "isSuccess": true,
-    "id": "3d09cdc4-e972-4341-810f-78841944303e"
+	"isSuccess": true,
+	"id": "1a06c740-99f4-49b5-b348-797315af7ff1"
 }
 ```
+<p>
+<a ><img src="https://i.ibb.co/c8B8ghQ/post-created.png" alt="Creating new user"/></a>
+</p>
 
 #### Response code to verb POST :
 - 201 OK /user has been added/
@@ -307,18 +317,19 @@ www.shop.com/user/?id=123e4567-e89b-12d3-a456-426614174000 </br>
 - 400 Bad request /error request on client side/
 
 ### Items DELETE verb
-DELETE / user/:id (removing user with declared id)</br>
+DELETE user/users/:id (removing user with declared id)</br>
 Example :
-www.shop.com/user/?id=123e4567-e89b-12d3-a456-426614174000 </br>
+www.shop.com/user/users/a384c07a-cc84-4b1e-8f1f-e5d85a8e86b0 </br>
 ```
 {
-    "isSuccess": true,
-    "id": "123e4567-e89b-12d3-a456-426614174000"
+	"isSuccess": true,
+	"id": "a384c07a-cc84-4b1e-8f1f-e5d85a8e86b0"
 }
 ```
 #### Response code to verb DELETE :
-- 201 OK /item has been removed/
-- 400 Bad request /error request on client side/
+- 200 OK /item has been removed/
+- 202 (Accepted) status code if the action will likely succeed but has not yet been enacted.
+- 204 (No Content) status code if the action has been enacted and no further information is to be supplied.
 
 
 ## Workers of shop endpoints

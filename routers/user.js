@@ -15,7 +15,33 @@ userRouter
             ...req.body,
         });
         const id = await newUser.insert();
-        res.status(201).json(id);
+        const resOk = {
+            "isSuccess": true,
+            id,
+        }
+        res.status(201).json(resOk);
+    })
+    .get('/users/:customer_id', async (req, res) => {
+        const user = await UserRegistry.customerGetOne(req.params.customer_id);
+
+        res.status(200).json(user);
+    })
+    .delete('/users/:customer_id', async (req, res) => {
+        const deleteUser = await UserRegistry.delete(req.params.customer_id);
+
+        res.status(200).json({
+            "isSuccess": true,
+            "id": req.params.customer_id,
+        });
+    })
+    .patch('/users/:customer_id', async (req, res) => {
+        const user = await UserRegistry.customerGetOne(req.params.customer_id);
+
+        if (user === null) {
+            throw new Error('No such user');
+        }
+        await user.update();
+        res.status(200).json(user);
     });
 
 module.exports = {

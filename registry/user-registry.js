@@ -35,11 +35,30 @@ class UserRegistry {
         const [ customers ] = await pool.execute("SELECT * FROM `customer`");
         return customers.map(obj => new UserRegistry(obj));
     }
-    static async customerGetOne(id){
+    static async customerGetOne(customer_id){
         const [ results ] = await pool.execute("SELECT * FROM `customer` WHERE `customer_id` = :customer_id", {
-            id,
+            customer_id,
         });
         return results.length === 0 ? null : new UserRegistry(results[0]);
+    }
+
+    static async delete(customer_id) {
+        const [ results ] = await pool.execute("DELETE FROM `customer` WHERE `customer_id` = :customer_id", {
+            customer_id,
+        });
+    }
+
+    async update() {
+        await pool.execute("UPDATE `customer` SET `first_name` = :first_name, `last_name` = :last_name, `phone` = :phone, `email` = :email, `street` = :street, `city` = :city, `zip_code` = :zip_code WHERE `customer_id` = :customer_id", {
+            customer_id: this.customer_id,
+            first_name: this.first_name,
+            last_name: this.last_name,
+            phone: this.phone,
+            email: this.email,
+            street: this.street,
+            city: this.city,
+            zip_code: this.zip_code,
+        });
     };
 }
 
