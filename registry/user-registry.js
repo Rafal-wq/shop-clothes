@@ -32,7 +32,7 @@ class UserRegistry {
         return this.customer_id;
     }
     static async listAll(){
-        const [ customers ] = await pool.execute("SELECT * FROM `customer`");
+        const [ customers ] = await pool.execute("SELECT * FROM `customer` ORDER BY `first_name` ASC");
         return customers.map(obj => new UserRegistry(obj));
     }
     static async customerGetOne(customer_id){

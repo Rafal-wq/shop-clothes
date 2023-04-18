@@ -23,6 +23,11 @@
     - POST
     - PUT
     - DELETE
+  - Category /item's category/
+    - GET
+    - POST
+    - PUT
+    - DELETE
 
 ## About
 Shop (goods, staff, customers), question: a buyer has come, wants to buy a specific outfit of clothes for such a size, to highlight what can be offered to him.
@@ -261,6 +266,9 @@ Returns :
 GET user/users/:id</br>
 Example :
 www.shop.com/user/users/1a06c740-99f4-49b5-b348-797315af7ff1 </br>
+<p>
+<a ><img src="https://i.ibb.co/StMv95H/getOne.png" alt="Getting one user data"/></a>
+</p>
 
 ```
 {
@@ -283,7 +291,7 @@ www.shop.com/user/users/1a06c740-99f4-49b5-b348-797315af7ff1 </br>
 
 ### Items POST verb
 
-POST / user (adding new user and id to them)</br>
+POST / user (adding new user and setting id to them)</br>
 Example:
 www.shop.com/user </br>
 ```
@@ -327,6 +335,18 @@ www.shop.com/user/users/a384c07a-cc84-4b1e-8f1f-e5d85a8e86b0 </br>
 }
 ```
 #### Response code to verb DELETE :
+
+<p>
+<a ><img src="https://i.ibb.co/p2dYmj2/delete.png" alt="Creating new user"/></a>
+</p>
+<br/>
+After deleting :
+
+<p>
+<a ><img src="https://i.ibb.co/KXWpXbB/get-All-after-delete.png" alt="Creating new user"/></a>
+</p>
+<br/>
+
 - 200 OK /item has been removed/
 - 202 (Accepted) status code if the action will likely succeed but has not yet been enacted.
 - 204 (No Content) status code if the action has been enacted and no further information is to be supplied.
@@ -426,3 +446,112 @@ www.shop.com/staff/?id=123e4567-e89b-12d3-a456-426614174000 </br>
 #### Response code to verb DELETE :
 - 201 OK /item has been removed/
 - 400 Bad request /error request on client side/
+<br/>
+
+
+## Categories of clothes endpoints
+GET category/categories (shows all categories of clothes)</br>
+Example :
+www.shop.com/category/categories </br>
+Returns :
+```
+[
+	{
+		"category_id": "719c0745-d416-4fb6-baba-c159b57d7946",
+		"category_name": "jacket"
+	},
+	{
+		"category_id": "795a44f5-d573-4a54-a7b0-a408a3fcd6c5",
+		"category_name": "jeans"
+	},
+	{
+		"category_id": "6a233b80-2afc-4d71-9e19-5efea109eb06",
+		"category_name": "pants"
+	},
+	{
+		"category_id": "8128d3e7-6c94-4b47-bf8d-0015b5c5b799",
+		"category_name": "shoes"
+	}
+]
+```
+<p>
+<a ><img src="https://i.ibb.co/Dtnywf6/category-get-All.png" alt="Getting all categories of clothes data"/></a>
+</p>
+
+GET category/categories/:id</br>
+Example :
+www.shop.com/category/categories/6a233b80-2afc-4d71-9e19-5efea109eb06 </br>
+
+```
+{
+	"category_id": "6a233b80-2afc-4d71-9e19-5efea109eb06",
+	"category_name": "pants"
+}
+```
+<br/>
+<p>
+<a ><img src="https://i.ibb.co/9ngvpMw/category-get-One.png" alt="Getting one category of clothes data"/></a>
+</p>
+
+#### Response code to verb GET :
+- 200 OK /you get correct response/
+- 400 Bad request /error request on client side/
+- 500 Internal server error
+
+
+### Items POST verb
+
+POST / category (adding new category and setting id to them)</br>
+Example:
+www.shop.com/category </br>
+```
+{
+	"isSuccess": true,
+	"id": "795a44f5-d573-4a54-a7b0-a408a3fcd6c5"
+}
+```
+<p>
+<a ><img src="https://i.ibb.co/5TtdMYL/category-post.png" alt="Creating new category"/></a>
+</p>
+
+#### Response code to verb POST :
+- 201 OK /user has been added/
+- 400 Bad request /error request on client side/
+
+
+
+### Response code to PUT verb :
+PUT / user/:id (make changes in user with declared id)</br>
+Example :
+www.shop.com/category/123e4567-e89b-12d3-a456-426614174000 </br>
+```
+{
+    "isSuccess": true,
+    "id": "123e4567-e89b-12d3-a456-426614174000"
+}
+```
+#### Response code to verb PUT :
+- 200 OK /user data has been changed/
+- 400 Bad request /error request on client side/
+
+### Items DELETE verb
+DELETE category/categories/:id (removing category with declared id)</br>
+Example :
+www.shop.com/category/categories/9ec04c6f-9aec-4248-a366-59a6d32db96c </br>
+```
+{
+	"isSuccess": true,
+	"id": "9ec04c6f-9aec-4248-a366-59a6d32db96c"
+}
+```
+#### Response code to verb DELETE :
+
+<p>
+<a ><img src="https://i.ibb.co/TRyQwxk/delete.png" alt="Deleting category"/></a>
+</p>
+<br/>
+
+
+- 200 OK /category has been removed/
+- 202 (Accepted) status code if the action will likely succeed but has not yet been enacted.
+- 204 (No Content) status code if the action has been enacted and no further information is to be supplied.
