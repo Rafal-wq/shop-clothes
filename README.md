@@ -28,6 +28,11 @@
     - POST
     - PUT
     - DELETE
+  - Brand /item's brand/
+    - GET
+    - POST
+    - PUT
+    - DELETE
 
 ## About
 Shop (goods, staff, customers), question: a buyer has come, wants to buy a specific outfit of clothes for such a size, to highlight what can be offered to him.
@@ -444,7 +449,7 @@ www.shop.com/staff/?id=123e4567-e89b-12d3-a456-426614174000 </br>
 }
 ```
 #### Response code to verb DELETE :
-- 201 OK /item has been removed/
+- 201 OK /staff has been removed/
 - 400 Bad request /error request on client side/
 <br/>
 
@@ -548,6 +553,110 @@ www.shop.com/category/categories/9ec04c6f-9aec-4248-a366-59a6d32db96c </br>
 
 <p>
 <a ><img src="https://i.ibb.co/TRyQwxk/delete.png" alt="Deleting category"/></a>
+</p>
+<br/>
+
+
+- 200 OK /category has been removed/
+- 202 (Accepted) status code if the action will likely succeed but has not yet been enacted.
+- 204 (No Content) status code if the action has been enacted and no further information is to be supplied.
+<br/>
+
+## Brands of clothes endpoints
+GET brand/brands (shows all brands of clothes)</br>
+Example :
+www.shop.com/brand/brands </br>
+Returns :
+```
+[
+	{
+		"brand_id": "167d3ced-90e0-440e-a55b-cf36982d453b",
+		"brand_name": "h&m"
+	},
+	{
+		"brand_id": "176d64e6-b339-4460-ae45-158bc0be2fa1",
+		"brand_name": "hollister"
+	},
+	{
+		"brand_id": "115389e8-6ad4-45aa-8866-656985d181a8",
+		"brand_name": "zara"
+	}
+]
+```
+<p>
+<a ><img src="https://i.ibb.co/vZP7TN4/get-all.png" alt="Getting all brands of clothes data"/></a>
+</p>
+
+GET category/categories/:id</br>
+Example :
+www.shop.com/brand/brands/167d3ced-90e0-440e-a55b-cf36982d453b </br>
+
+```
+{
+	"brand_id": "167d3ced-90e0-440e-a55b-cf36982d453b",
+	"brand_name": "h&m"
+}
+```
+<br/>
+<p>
+<a ><img src="https://i.ibb.co/4jy8vgh/get-one.png" alt="Getting one brand of clothes data"/></a>
+</p>
+
+#### Response code to verb GET :
+- 200 OK /you get correct response/
+- 400 Bad request /error request on client side/
+- 500 Internal server error
+
+
+### Items POST verb
+
+POST / brand (adding new brand and setting id to them)</br>
+Example:
+www.shop.com/brand </br>
+```
+{
+	"isSuccess": true,
+	"id": "167d3ced-90e0-440e-a55b-cf36982d453b"
+}
+```
+<p>
+<a ><img src="https://i.ibb.co/pzfvXdp/post.png" alt="Creating new item brand"/></a>
+</p>
+
+#### Response code to verb POST :
+- 201 OK /user has been added/
+- 400 Bad request /error request on client side/
+
+
+
+### Response code to PUT verb :
+PUT brand/brands/:id (make changes in brand with declared id)</br>
+Example :
+www.shop.com/brand/brands/123e4567-e89b-12d3-a456-426614174000 </br>
+```
+{
+    "isSuccess": true,
+    "id": "123e4567-e89b-12d3-a456-426614174000"
+}
+```
+#### Response code to verb PUT :
+- 200 OK /brand data has been changed/
+- 400 Bad request /error request on client side/
+
+### Items DELETE verb
+DELETE brand/brands/:id (removing brand with declared id)</br>
+Example :
+www.shop.com/brand/brands/176d64e6-b339-4460-ae45-158bc0be2fa1 </br>
+```
+{
+	"isSuccess": true,
+	"id": "176d64e6-b339-4460-ae45-158bc0be2fa1"
+}
+```
+#### Response code to verb DELETE :
+
+<p>
+<a ><img src="https://i.ibb.co/PGmfkWZ/delete.png" alt="Deleting brand data"/></a>
 </p>
 <br/>
 
