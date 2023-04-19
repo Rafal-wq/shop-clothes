@@ -34,7 +34,7 @@ categoryRouter
     })
     .patch('/categories/:category_id', async (req, res) => {
 
-        const category = await CategoryRegistry.categoryGetOne(req.params.customer_id);
+        const category = await CategoryRegistry.categoryGetOne(req.params.category_id);
 
         if (category === null) {
             throw new Error('No such category');
@@ -46,4 +46,4 @@ categoryRouter
 
 module.exports = {
     categoryRouter,
-}
+};
