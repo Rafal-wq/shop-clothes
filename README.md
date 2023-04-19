@@ -358,46 +358,52 @@ After deleting :
 
 
 ## Workers of shop endpoints
-GET / staff (shows all workers)</br>
+GET worker/workers (shows all workers)</br>
 Example :
-www.shop.com/staff </br>
+www.shop.com/worker/workers </br>
 Returns :
 ```
 [
-{
-"staffId": "1",
-"name": "aaaaaaaaaa",
-"surname": "bbbbbbb",
-"age": "33"
-},
-{
-"staffId": "2",
-"name": "cccccccccc",
-"surname": "dddddddd",
-"age": "34"
-},
-{
-"staffId": "3",
-"name": "eeeeeeee",
-"surname": "ffffffff",
-"age": "35"
-}
+	{
+		"worker_id": "c24b7013-78c8-4a61-a58e-434c9dbe16a9",
+		"first_name": "John",
+		"last_name": "test",
+		"phone": "123123123",
+		"email": "example@gmail.com",
+		"isActive": 1
+	},
+	{
+		"worker_id": "ba7c6769-d944-438f-b350-304d0b679be6",
+		"first_name": "John2",
+		"last_name": "test2",
+		"phone": "123123123",
+		"email": "example2@gmail.com",
+		"isActive": 1
+	}
 ]
 ```
+<p>
+<a ><img src="https://i.ibb.co/nccVdN3/wrokers-All.png" alt="Getting all workers data"/></a>
+</p>
 
-
-GET / staff/:id</br>
+GET worker/workers/:id</br>
 Example :
-www.shop.com/staff/?id=123e4567-e89b-12d3-a456-426614174000 </br>
+www.shop.com/worker/workers/c24b7013-78c8-4a61-a58e-434c9dbe16a9 </br>
 
 ```
 {
-  "staffId": "123e4567-e89b-12d3-a456-426614174000",
-  "name": "aaaaaaaaaa",
-  "surname": "bbbbbbb",
-  "age": "33"
+	"worker_id": "c24b7013-78c8-4a61-a58e-434c9dbe16a9",
+	"first_name": "John",
+	"last_name": "test",
+	"phone": "123123123",
+	"email": "example@gmail.com",
+	"isActive": 1
 }
 ```
+<p>
+<a ><img src="https://i.ibb.co/HNYjz4m/worker-one.png" alt="Getting one worker data"/></a>
+</p>
+
 
 #### Response code to verb GET :
 - 200 OK /you get correct response/
@@ -408,15 +414,20 @@ www.shop.com/staff/?id=123e4567-e89b-12d3-a456-426614174000 </br>
 
 ### Items POST verb
 
-POST / staff (adding new worker and give id to them)</br>
+POST /worker (adding new worker and set id to them)</br>
 Example:
-www.shop.com/staff </br>
+www.shop.com/worker </br>
+Response :
 ```
 {
-    "isSuccess": true,
-    "id": "3d09cdc4-e972-4341-810f-78841944303e"
+	"isSuccess": true,
+	"id": "cdd5459d-6384-4d55-a56b-740c04c4eb49"
 }
 ```
+<p>
+<a ><img src="https://i.ibb.co/b6qH8CD/worker-post.png" alt="Adding worker"/></a>
+</p>
+
 
 #### Response code to verb POST :
 - 201 OK /user has been added/
@@ -427,7 +438,7 @@ www.shop.com/staff </br>
 ### Response code to PUT verb :
 PUT / staff/:id (make changes in user with declared id)</br>
 Example :
-www.shop.com/staff/?id=123e4567-e89b-12d3-a456-426614174000 </br>
+www.shop.com/worker/workers/?id=123e4567-e89b-12d3-a456-426614174000 </br>
 ```
 {
     "isSuccess": true,
@@ -435,17 +446,18 @@ www.shop.com/staff/?id=123e4567-e89b-12d3-a456-426614174000 </br>
 }
 ```
 #### Response code to verb PUT :
-- 200 OK /user data has been changed/
+- 200 OK /worker data has been changed/
 - 400 Bad request /error request on client side/
 
 ### Items DELETE verb
-DELETE / staff/:id (removing user with declared id)</br>
+DELETE /worker/workers/:id (removing worker with declared id)</br>
 Example :
-www.shop.com/staff/?id=123e4567-e89b-12d3-a456-426614174000 </br>
+www.shop.com/worker/workers/cdd5459d-6384-4d55-a56b-740c04c4eb49 </br>
+Response :
 ```
 {
-    "isSuccess": true,
-    "id": "123e4567-e89b-12d3-a456-426614174000"
+	"isSuccess": true,
+	"id": "cdd5459d-6384-4d55-a56b-740c04c4eb49"
 }
 ```
 #### Response code to verb DELETE :
