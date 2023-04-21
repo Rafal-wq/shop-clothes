@@ -1,7 +1,7 @@
 {
   "name": "shop_project",
   "version": "1.0.0",
-  "description": "## Shop with clothes schema",
+  "description": "Clothes store",
   "main": "index.js",
   "scripts": {
     "startDev": "npx nodemon index.js"

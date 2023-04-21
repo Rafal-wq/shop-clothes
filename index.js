@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const { urlencoded } = require('express');
-const bodyParser = require('body-parser');
 
 const { userRouter } = require('./routers/user');
 const { categoryRouter } = require('./routers/category');
@@ -11,9 +10,6 @@ const { workerRouter } = require('./routers/workers');
 app.use(express.json());
 app.use(urlencoded({
     extended: true,
-}));
-app.use(bodyParser.json({
-    type: 'application/json',
 }));
 
 app.use('/user', userRouter);

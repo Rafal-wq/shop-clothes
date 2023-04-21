@@ -460,6 +460,11 @@ Response :
 	"id": "cdd5459d-6384-4d55-a56b-740c04c4eb49"
 }
 ```
+<p>
+<a ><img src="https://i.ibb.co/0hj1Cf3/worker-delete.png" alt="Removing worker"/></a>
+</p>
+
+
 #### Response code to verb DELETE :
 - 201 OK /staff has been removed/
 - 400 Bad request /error request on client side/
