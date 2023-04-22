@@ -123,63 +123,55 @@ CREATE TABLE orders (
 ## ITEMS ENDPOINTS
 
 ### Items (clothes) in shop - getting verbs
-GET / items (shows all clothes from shop)</br>
+GET item/items (shows all clothes from shop)</br>
 Example :
-www.shop.com </br> 
+www.shop.com/item/items </br> 
 Returns :
 ```
 [
-{
-"productId": "1",
-"typeOfProduct": "shirt",
-"size": "42",
-},
-{
-"productId": "2",
-"typeOfProduct": "pants",
-"size": "40",
-},
-{
-"productId": "3",
-"typeOfProduct": "t-shirt",
-"size": "44",
-}
+	{
+		"item_id": "70ce51e9-7059-448d-8e2d-75d5eb2845f3",
+		"name": "coat",
+		"brand_id": "115389e8-6ad4-45aa-8866-656985d181a8",
+		"category_id": "719c0745-d416-4fb6-baba-c159b57d7946",
+		"size": 8
+	},
+	{
+		"item_id": "284c51cd-79f4-443a-8d25-fb622c9b9425",
+		"name": "jeans",
+		"brand_id": "167d3ced-90e0-440e-a55b-cf36982d453b",
+		"category_id": "795a44f5-d573-4a54-a7b0-a408a3fcd6c5",
+		"size": 10
+	},
+	{
+		"item_id": "4f578c38-e0fb-11ed-8a72-9dd658370987",
+		"name": "shirt",
+		"brand_id": "167d3ced-90e0-440e-a55b-cf36982d453b",
+		"category_id": "6a233b80-2afc-4d71-9e19-5efea109eb06",
+		"size": 8
+	}
 ]
 ```
-GET / items/:type (shows looking for type of outfits)</br>
-Example :
-www.shop.com/?type=shirt </br>
-```
-[
-{
-    "productId": "1",
-    "typeOfProduct": "shirt",
-    "size": "42",
-},
-{
-    "productId": "2",
-    "typeOfProduct": "shirt",
-    "size": "40",
-},
-{
-    "productId": "3",
-    "typeOfProduct": "shirt",
-    "size": "44",
-}
-]
-```
+<p>
+<a ><img src="https://i.ibb.co/BqsdScK/item-get-All.png" alt="Getting all clothes data"/></a>
+</p>
 
-GET / items/:type/:size (shows looking for type of outfits in searching size)</br>
+#### One item
+GET item/items/:id (shows looking for type of outfits by id)</br>
 Example :
-www.shop.com/?type=pants&size=42 </br>
-
+www.shop.com/item/items/70ce51e9-7059-448d-8e2d-75d5eb2845f3 </br>
 ```
 {
-    "productId": "1",
-    "typeOfProduct": "pants",
-    "size": "42",
+	"item_id": "70ce51e9-7059-448d-8e2d-75d5eb2845f3",
+	"name": "coat",
+	"brand_id": "115389e8-6ad4-45aa-8866-656985d181a8",
+	"category_id": "719c0745-d416-4fb6-baba-c159b57d7946",
+	"size": 8
 }
 ```
+<p>
+<a ><img src="https://i.ibb.co/MSdxDjn/item-get-One.png" alt="Getting one clothes item data"/></a>
+</p>
 
 #### Response code to verb GET :
   - 200 OK /you get correct response/
@@ -189,15 +181,18 @@ www.shop.com/?type=pants&size=42 </br>
 
 ### Items POST verb
   
-POST / item (adding new item with described type and size, adding id of item also)</br>
+POST /item (adding new item with described type and size, adding id of item also)</br>
 Example:
 www.shop.com/item </br>
 ```
 {
-    "isSuccess": true,
-    "id": "3d09cdc4-e972-4341-810f-78841944303e"
+	"isSuccess": true,
+	"id": "284c51cd-79f4-443a-8d25-fb622c9b9425"
 }
 ```
+<p>
+<a ><img src="https://i.ibb.co/qDM6QZC/item-post.png" alt="Adding clothes item"/></a>
+</p>
 
 #### Response code to verb POST :
 - 201 OK /item has been added/
@@ -206,13 +201,13 @@ www.shop.com/item </br>
 
 
 ### Response code to PUT verb :
-PUT / item/:id (make changes in item with declared id)</br>
+PUT /item/items/:id (make changes in item with declared id)</br>
 Example :
-www.shop.com/pants/?id=123e4567-e89b-12d3-a456-426614174000 </br>
+www.shop.com/item/items/284c51cd-79f4-443a-8d25-fb622c9b9425 </br>
 ```
 {
     "isSuccess": true,
-    "id": "123e4567-e89b-12d3-a456-426614174000"
+    "id": "284c51cd-79f4-443a-8d25-fb622c9b9425"
 }
 ```
 #### Response code to verb PUT :
@@ -220,13 +215,13 @@ www.shop.com/pants/?id=123e4567-e89b-12d3-a456-426614174000 </br>
 - 400 Bad request /error request on client side/
 
 ### Items DELETE verb
-DELETE / item/:id (removing item with declared id)</br>
+DELETE / item/items/:id (removing item with declared id)</br>
 Example :
-www.shop.com/pants/?id=123e4567-e89b-12d3-a456-426614174000 </br>
+www.shop.com/item/items/70ce51e9-7059-448d-8e2d-75d5eb2845f3 </br>
 ```
 {
-    "isSuccess": true,
-    "id": "123e4567-e89b-12d3-a456-426614174000"
+	"isSuccess": true,
+	"id": "70ce51e9-7059-448d-8e2d-75d5eb2845f3"
 }
 ```
 #### Response code to verb DELETE :
