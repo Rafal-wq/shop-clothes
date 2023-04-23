@@ -676,3 +676,115 @@ www.shop.com/brand/brands/176d64e6-b339-4460-ae45-158bc0be2fa1 </br>
 - 200 OK /category has been removed/
 - 202 (Accepted) status code if the action will likely succeed but has not yet been enacted.
 - 204 (No Content) status code if the action has been enacted and no further information is to be supplied.
+
+## Orders of shop endpoints
+GET order/orders (shows all orders)</br>
+Example :
+www.shop.com/order/orders </br>
+Returns :
+```
+[
+	{
+		"order_id": "70001710-0233-4557-a6f8-9ca5c430d5d0",
+		"order_date": "2023-04-22T22:00:00.000Z",
+		"item_id": "284c51cd-79f4-443a-8d25-fb622c9b9425",
+		"worker_id": "c24b7013-78c8-4a61-a58e-434c9dbe16a9",
+		"customer_id": "22448659-58c2-400a-a2fe-1e85abb99b3c"
+	},
+	{
+		"order_id": "5ff3a11e-b4c1-4e7b-9fd5-c5f38ede0c3c",
+		"order_date": "2023-04-21T22:00:00.000Z",
+		"item_id": "4f578c38-e0fb-11ed-8a72-9dd658370987",
+		"worker_id": "ba7c6769-d944-438f-b350-304d0b679be6",
+		"customer_id": "22448659-58c2-400a-a2fe-1e85abb99b3c"
+	}
+]
+```
+<p>
+<a ><img src="https://i.ibb.co/Xk4F8nn/orders-all.png" alt="Getting all orders data"/></a>
+</p>
+
+#### One order by id
+
+GET order/orders/:id</br>
+Example :
+www.shop.com/order/orders/bc23fade-6a0e-4d48-bb1d-83b96a7f58fa </br>
+<p>
+<a ><img src="https://i.ibb.co/gWkJDSF/orders-one.png" alt="Getting one order data"/></a>
+</p>
+
+```
+{
+	"order_id": "bc23fade-6a0e-4d48-bb1d-83b96a7f58fa",
+	"order_date": "2023-04-21T22:00:00.000Z",
+	"item_id": "284c51cd-79f4-443a-8d25-fb622c9b9425",
+	"worker_id": "c24b7013-78c8-4a61-a58e-434c9dbe16a9",
+	"customer_id": "5bcd4cbc-aa38-45f2-91cd-1b9ab2072f58"
+}
+```
+
+#### Response code to verb GET :
+- 200 OK /you get correct response/
+- 400 Bad request /error request on client side/
+- 500 Internal server error
+
+
+### Items POST verb
+
+POST / order (adding new order and setting id to them)</br>
+Example:
+www.shop.com/order </br>
+```
+{
+	"isSuccess": true,
+	"id": "70001710-0233-4557-a6f8-9ca5c430d5d0"
+}
+```
+<p>
+<a ><img src="https://i.ibb.co/c8B8ghQ/post-created.png" alt="Creating new order"/></a>
+</p>
+
+You don't have to put date, it will be putting automatically.
+But you could do this if the date will be different than today's.
+
+#### Response code to verb POST :
+- 201 OK /order has been added/
+- 400 Bad request /error request on client side/
+
+
+
+### Response code to PUT verb :
+PUT / order/orders/:id (make changes in order with declared id)</br>
+Example :
+www.shop.com/order/orders/70001710-0233-4557-a6f8-9ca5c430d5d0 </br>
+```
+{
+    "isSuccess": true,
+    "id": "70001710-0233-4557-a6f8-9ca5c430d5d0"
+}
+```
+#### Response code to verb PUT :
+- 200 OK /order data has been changed/
+- 400 Bad request /error request on client side/
+
+### Items DELETE verb
+DELETE order/orders/:id (removing order with declared id)</br>
+Example :
+www.shop.com/user/users/bc23fade-6a0e-4d48-bb1d-83b96a7f58fa </br>
+```
+{
+	"isSuccess": true,
+	"id": "bc23fade-6a0e-4d48-bb1d-83b96a7f58fa"
+}
+```
+#### Response code to verb DELETE :
+
+<p>
+<a ><img src="https://i.ibb.co/cXfGfvf/orders-delete.png" alt="Deleting new order"/></a>
+</p>
+<br/>
+
+
+- 200 OK /order has been removed/
+- 202 (Accepted) status code if the action will likely succeed but has not yet been enacted.
+- 204 (No Content) status code if the action has been enacted and no further information is to be supplied.
