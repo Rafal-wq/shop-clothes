@@ -33,6 +33,11 @@
     - POST
     - PUT
     - DELETE
+  - Order /data of ordered item/
+    - GET
+    - POST
+    - PUT
+    - DELETE
 
 ## About
 Shop (goods, staff, customers), question: a buyer has come, wants to buy a specific outfit of clothes for such a size, to highlight what can be offered to him.
