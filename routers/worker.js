@@ -14,10 +14,7 @@ workerRouter
             ...req.body,
         });
         const id = await newWorker.insert();
-        res.status(201).json({
-            "isSuccess": true,
-            id,
-        });
+        res.status(200).json( id );
     })
     .get('/workers/:worker_id', async (req, res) => {
         const worker = await WorkersRegistry.workerGetOne(req.params.worker_id);

@@ -14,10 +14,7 @@ userRouter
             ...req.body,
         });
         const id = await newUser.insert();
-        res.status(201).json({
-            "isSuccess": true,
-            id,
-        });
+        res.status(200).json( id );
     })
     .get('/users/:customer_id', async (req, res) => {
         const user = await UserRegistry.customerGetOne(req.params.customer_id);

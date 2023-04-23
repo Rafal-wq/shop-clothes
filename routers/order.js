@@ -14,10 +14,7 @@ orderRouter
             ...req.body,
         });
         const id = await newOrder.insert();
-        res.status(201).json({
-            "isSuccess": true,
-            id,
-        });
+        res.status(200).json( id );
     })
     .get('/orders/:order_id', async (req, res) => {
         const order = await OrderRegistry.orderGetOne(req.params.order_id);

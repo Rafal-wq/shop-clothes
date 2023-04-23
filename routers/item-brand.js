@@ -14,10 +14,7 @@ brandRouter
             ...req.body,
         });
         const id = await newBrand.insert();
-        res.status(201).json({
-            "isSuccess": true,
-            id,
-        });
+        res.status(200).json( id );
     })
     .get('/brands/:brand_id', async (req, res) => {
         const brand = await BrandRegistry.brandGetOne(req.params.brand_id);

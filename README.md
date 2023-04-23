@@ -191,16 +191,15 @@ Example:
 www.shop.com/item </br>
 ```
 {
-	"isSuccess": true,
-	"id": "284c51cd-79f4-443a-8d25-fb622c9b9425"
+	"a0b0866b-8e0a-4cb5-aebb-e66f23488d2e"
 }
 ```
 <p>
-<a ><img src="https://i.ibb.co/qDM6QZC/item-post.png" alt="Adding clothes item"/></a>
+<a ><img src="https://i.ibb.co/Vt5HXh5/item-post-new.png" alt="Adding new clothes item"/></a>
 </p>
 
 #### Response code to verb POST :
-- 201 OK /item has been added/
+- 200 OK /item has been added/
 - 400 Bad request /error request on client side/
 
 
@@ -301,16 +300,15 @@ Example:
 www.shop.com/user </br>
 ```
 {
-	"isSuccess": true,
-	"id": "1a06c740-99f4-49b5-b348-797315af7ff1"
+	"c5be7aa4-5376-4c67-aac4-750a13ccc321"
 }
 ```
 <p>
-<a ><img src="https://i.ibb.co/c8B8ghQ/post-created.png" alt="Creating new user"/></a>
+<a ><img src="https://i.ibb.co/jJpp3KQ/user-post-new.png" alt="Creating new user"/></a>
 </p>
 
 #### Response code to verb POST :
-- 201 OK /user has been added/
+- 200 OK /user has been added/
 - 400 Bad request /error request on client side/
 
 
@@ -420,23 +418,22 @@ www.shop.com/worker </br>
 Response :
 ```
 {
-	"isSuccess": true,
-	"id": "cdd5459d-6384-4d55-a56b-740c04c4eb49"
+  "014d7e9a-87d5-49aa-b2c2-66a29849b2b6"
 }
 ```
 <p>
-<a ><img src="https://i.ibb.co/b6qH8CD/worker-post.png" alt="Adding worker"/></a>
+<a ><img src="https://i.ibb.co/hKzK2KH/worker-post-new.png" alt="Adding new worker"/></a>
 </p>
 
 
 #### Response code to verb POST :
-- 201 OK /user has been added/
+- 200 OK /user has been added/
 - 400 Bad request /error request on client side/
 
 
 
 ### Response code to PUT verb :
-PUT / staff/:id (make changes in user with declared id)</br>
+PUT / worker/:id (make changes in worker with declared id)</br>
 Example :
 www.shop.com/worker/workers/?id=123e4567-e89b-12d3-a456-426614174000 </br>
 ```
@@ -528,16 +525,15 @@ Example:
 www.shop.com/category </br>
 ```
 {
-	"isSuccess": true,
-	"id": "795a44f5-d573-4a54-a7b0-a408a3fcd6c5"
+  "55e6321e-33aa-4ac2-86f7-a5981e21575b"
 }
 ```
 <p>
-<a ><img src="https://i.ibb.co/5TtdMYL/category-post.png" alt="Creating new category"/></a>
+<a ><img src="https://i.ibb.co/gWLpwZP/category-post-new.png" alt="Creating new category"/></a>
 </p>
 
 #### Response code to verb POST :
-- 201 OK /user has been added/
+- 200 OK /user has been added/
 - 400 Bad request /error request on client side/
 
 
@@ -632,16 +628,15 @@ Example:
 www.shop.com/brand </br>
 ```
 {
-	"isSuccess": true,
-	"id": "167d3ced-90e0-440e-a55b-cf36982d453b"
+  "f3c52067-c849-4782-a7c9-9f98911179cd"
 }
 ```
 <p>
-<a ><img src="https://i.ibb.co/pzfvXdp/post.png" alt="Creating new item brand"/></a>
+<a ><img src="https://i.ibb.co/74t9V69/brand-post-new.png" alt="Creating new item brand"/></a>
 </p>
 
 #### Response code to verb POST :
-- 201 OK /user has been added/
+- 200 OK /user has been added/
 - 400 Bad request /error request on client side/
 
 
@@ -741,19 +736,18 @@ Example:
 www.shop.com/order </br>
 ```
 {
-	"isSuccess": true,
-	"id": "70001710-0233-4557-a6f8-9ca5c430d5d0"
+  "76d09e3b-44da-47f2-9e72-41e0cb628bad"
 }
 ```
 <p>
-<a ><img src="https://i.ibb.co/c8B8ghQ/post-created.png" alt="Creating new order"/></a>
+<a ><img src="https://i.ibb.co/MRqTkmn/order-post-new.png" alt="Creating new order"/></a>
 </p>
 
 You don't have to put date, it will be putting automatically.
 But you could do this if the date will be different than today's.
 
 #### Response code to verb POST :
-- 201 OK /order has been added/
+- 200 OK /order has been added/
 - 400 Bad request /error request on client side/
 
 

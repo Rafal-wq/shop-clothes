@@ -20,7 +20,6 @@ class OrderRegistry {
             let year = date.getFullYear();
             this.order_date = year + "-" + month + "-" + monthDay;
         }
-        console.log(this.order_date);
         await pool.execute("INSERT INTO `orders`(`order_id`, `order_date`, `item_id`, `worker_id`, `customer_id`) VALUES(:order_id, :order_date, :item_id, :worker_id, :customer_id)", {
             order_id: this.order_id,
             order_date: this.order_date,
