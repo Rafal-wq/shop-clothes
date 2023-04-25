@@ -36,14 +36,14 @@ class UserRegistry {
         return customers.map(obj => new UserRegistry(obj));
     }
     static async customerGetOne(customer_id){
-        const [ results ] = await pool.execute("SELECT * FROM `customer` WHERE `customer_id` = :customer_id", {
+        const [ results ] = await pool.execute("SELECT `first_name`, `last_name` FROM `customer` WHERE `customer_id` = :customer_id", {
             customer_id,
         });
         return results.length === 0 ? null : new UserRegistry(results[0]);
     }
 
     static async delete(customer_id) {
-        const [ results ] = await pool.execute("DELETE FROM `customer` WHERE `customer_id` = :customer_id", {
+        await pool.execute("DELETE FROM `customer` WHERE `customer_id` = :customer_id", {
             customer_id,
         });
     }

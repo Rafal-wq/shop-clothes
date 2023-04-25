@@ -24,7 +24,7 @@ class BrandRegistry {
         return brand.map(obj => new BrandRegistry(obj));
     }
     static async brandGetOne(brand_id){
-        const [ results ] = await pool.execute("SELECT * FROM `item_brand` WHERE `brand_id` = :brand_id", {
+        const [ results ] = await pool.execute("SELECT `brand_name` FROM `item_brand` WHERE `brand_id` = :brand_id", {
             brand_id,
         });
         return results.length === 0 ? null : new BrandRegistry(results[0]);

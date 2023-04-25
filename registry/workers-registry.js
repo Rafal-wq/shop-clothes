@@ -32,7 +32,7 @@ class WorkersRegistry {
         return workers.map(obj => new WorkersRegistry(obj));
     }
     static async workerGetOne(worker_id){
-        const [ results ] = await pool.execute("SELECT * FROM `workers` WHERE `worker_id` = :worker_id", {
+        const [ results ] = await pool.execute("SELECT `first_name`, `last_name` FROM `workers` WHERE `worker_id` = :worker_id", {
             worker_id,
         });
         return results.length === 0 ? null : new WorkersRegistry(results[0]);

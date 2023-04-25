@@ -24,14 +24,14 @@ class CategoryRegistry {
         return category.map(obj => new CategoryRegistry(obj));
     }
     static async categoryGetOne(category_id){
-        const [ results ] = await pool.execute("SELECT * FROM `category` WHERE `category_id` = :category_id", {
+        const [ results ] = await pool.execute("SELECT `category_name` FROM `category` WHERE `category_id` = :category_id", {
             category_id,
         });
         return results.length === 0 ? null : new CategoryRegistry(results[0]);
     }
 
     static async delete(category_id) {
-        const [ results ] = await pool.execute("DELETE FROM `category` WHERE `category_id` = :category_id", {
+        await pool.execute("DELETE FROM `category` WHERE `category_id` = :category_id", {
             category_id,
         });
     }

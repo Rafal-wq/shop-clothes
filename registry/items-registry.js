@@ -30,7 +30,7 @@ class ItemRegistry {
         return items.map(obj => new ItemRegistry(obj));
     }
     static async itemGetOne(item_id){
-        const [ results ] = await pool.execute("SELECT * FROM `items` WHERE `item_id` = :item_id", {
+        const [ results ] = await pool.execute("SELECT `name`, `brand_id`, `size` FROM `items` WHERE `item_id` = :item_id", {
             item_id,
         });
         return results.length === 0 ? null : new ItemRegistry(results[0]);

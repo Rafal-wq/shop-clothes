@@ -34,7 +34,7 @@ class OrderRegistry {
         return orders.map(obj => new OrderRegistry(obj));
     }
     static async orderGetOne(order_id){
-        const [ results ] = await pool.execute("SELECT * FROM `orders` WHERE `order_id` = :order_id", {
+        const [ results ] = await pool.execute("SELECT `order_date`, `item_id` FROM `orders` WHERE `order_id` = :order_id", {
             order_id,
         });
         return results.length === 0 ? null : new OrderRegistry(results[0]);
