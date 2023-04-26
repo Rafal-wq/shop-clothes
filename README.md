@@ -167,15 +167,13 @@ Example :
 www.shop.com/item/items/70ce51e9-7059-448d-8e2d-75d5eb2845f3 </br>
 ```
 {
-	"item_id": "70ce51e9-7059-448d-8e2d-75d5eb2845f3",
-	"name": "coat",
-	"brand_id": "115389e8-6ad4-45aa-8866-656985d181a8",
-	"category_id": "719c0745-d416-4fb6-baba-c159b57d7946",
-	"size": 8
+	"name": "jeans",
+	"brand_id": "167d3ced-90e0-440e-a55b-cf36982d453b",
+	"size": 10
 }
 ```
 <p>
-<a ><img src="https://i.ibb.co/MSdxDjn/item-get-One.png" alt="Getting one clothes item data"/></a>
+<a ><img src="https://i.ibb.co/1KHCkvW/item-get-one.png" alt="Getting one clothes item data"/></a>
 </p>
 
 #### Response code to verb GET :
@@ -271,19 +269,13 @@ GET user/users/:id</br>
 Example :
 www.shop.com/user/users/1a06c740-99f4-49b5-b348-797315af7ff1 </br>
 <p>
-<a ><img src="https://i.ibb.co/StMv95H/getOne.png" alt="Getting one user data"/></a>
+<a ><img src="https://i.ibb.co/V3c3Sf7/user-get-one.png" alt="Getting one user data"/></a>
 </p>
 
 ```
 {
-	"customer_id": "1a06c740-99f4-49b5-b348-797315af7ff1",
-	"first_name": "test2",
-	"last_name": "test2",
-	"phone": "222333444",
-	"email": "example2@gmail.com",
-	"street": "test2",
-	"city": "test2",
-	"zip_code": "23456"
+	"first_name": "test",
+	"last_name": "test"
 }
 ```
 
@@ -390,16 +382,12 @@ www.shop.com/worker/workers/c24b7013-78c8-4a61-a58e-434c9dbe16a9 </br>
 
 ```
 {
-	"worker_id": "c24b7013-78c8-4a61-a58e-434c9dbe16a9",
 	"first_name": "John",
-	"last_name": "test",
-	"phone": "123123123",
-	"email": "example@gmail.com",
-	"isActive": 1
+	"last_name": "test"
 }
 ```
 <p>
-<a ><img src="https://i.ibb.co/HNYjz4m/worker-one.png" alt="Getting one worker data"/></a>
+<a ><img src="https://i.ibb.co/R7Kn614/worker-get-one.png" alt="Getting one worker data"/></a>
 </p>
 
 
@@ -503,13 +491,12 @@ www.shop.com/category/categories/6a233b80-2afc-4d71-9e19-5efea109eb06 </br>
 
 ```
 {
-	"category_id": "6a233b80-2afc-4d71-9e19-5efea109eb06",
 	"category_name": "pants"
 }
 ```
 <br/>
 <p>
-<a ><img src="https://i.ibb.co/9ngvpMw/category-get-One.png" alt="Getting one category of clothes data"/></a>
+<a ><img src="https://i.ibb.co/z6Dn2n9/category-get-one.png" alt="Getting one category of clothes data"/></a>
 </p>
 
 #### Response code to verb GET :
@@ -606,13 +593,12 @@ www.shop.com/brand/brands/167d3ced-90e0-440e-a55b-cf36982d453b </br>
 
 ```
 {
-	"brand_id": "167d3ced-90e0-440e-a55b-cf36982d453b",
 	"brand_name": "h&m"
 }
 ```
 <br/>
 <p>
-<a ><img src="https://i.ibb.co/4jy8vgh/get-one.png" alt="Getting one brand of clothes data"/></a>
+<a ><img src="https://i.ibb.co/BwzDtz4/brand-get-one.png" alt="Getting one brand of clothes data"/></a>
 </p>
 
 #### Response code to verb GET :
@@ -710,16 +696,13 @@ GET order/orders/:id</br>
 Example :
 www.shop.com/order/orders/bc23fade-6a0e-4d48-bb1d-83b96a7f58fa </br>
 <p>
-<a ><img src="https://i.ibb.co/gWkJDSF/orders-one.png" alt="Getting one order data"/></a>
+<a ><img src="https://i.ibb.co/3ff4ggX/orders-ger-one.png" alt="Getting one order data"/></a>
 </p>
 
 ```
 {
-	"order_id": "bc23fade-6a0e-4d48-bb1d-83b96a7f58fa",
-	"order_date": "2023-04-21T22:00:00.000Z",
-	"item_id": "284c51cd-79f4-443a-8d25-fb622c9b9425",
-	"worker_id": "c24b7013-78c8-4a61-a58e-434c9dbe16a9",
-	"customer_id": "5bcd4cbc-aa38-45f2-91cd-1b9ab2072f58"
+	"order_date": "2023-04-22T22:00:00.000Z",
+	"item_id": "284c51cd-79f4-443a-8d25-fb622c9b9425"
 }
 ```
 
