@@ -14,7 +14,7 @@ categoryRouter
             ...req.body,
         });
         const id = await newCategory.insert();
-        res.status(200).json( id );
+        res.status(200).json(id);
     })
     .get('/categories/:category_id', async (req, res) => {
         const category = await CategoryRegistry.categoryGetOne(req.params.category_id);

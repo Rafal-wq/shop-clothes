@@ -4,7 +4,8 @@
   "description": "Clothes store",
   "main": "index.js",
   "scripts": {
-    "startDev": "npx nodemon index.js"
+    "startDev": "npx nodemon index.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +17,8 @@
     "mysql2": "^3.2.0",
     "nodemon": "^2.0.22",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
   }
 }
