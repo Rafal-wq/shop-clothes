@@ -61,7 +61,7 @@ $ docker-compose up
 ```
 Disclaimer :
 You need to have the Docker installed.
-If you don't have it on :
+If you don't have it, you can get it on :
 https://hub.docker.com
 
 <p>
