@@ -63,6 +63,14 @@ Disclaimer :
 You need to have the Docker installed.
 If you don't have it on :
 https://hub.docker.com
+
+<p>
+<a ><img src="https://i.ibb.co/6JFrNnP/Docker-compose-up.png" alt=""/></a>
+</p>
+
+
+
+
 ## DATABASE CONFIGURATION
 
 ### Schema of database
