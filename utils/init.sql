@@ -1,27 +1,26 @@
-CREATE DATABASE IF NOT EXISTS solvd_shop_docker
-USE solvd_shop_docker
-CREATE TABLE IF NOT EXISTS workers (
-	worker_id INT PRIMARY KEY,
+CREATE DATABASE IF NOT EXISTS `solvd_shop_docker`;
+USE `solvd_shop_docker`;
+CREATE TABLE workers (
+	worker_id VARCHAR (36) PRIMARY KEY,
 	first_name VARCHAR (50) NOT NULL,
 	last_name VARCHAR (50) NOT NULL,
 	email VARCHAR (255) NOT NULL UNIQUE,
 	phone VARCHAR (25),
-	isActive tinyint NOT NULL,
-	store_id INT NOT NULL
+	isActive tinyint NOT NULL
 );
-CREATE TABLE IF NOT EXISTS category (
-	category_id INT PRIMARY KEY,
+CREATE TABLE category (
+	category_id VARCHAR (36) PRIMARY KEY,
 	category_name VARCHAR (255) NOT NULL
 );
-CREATE TABLE IF NOT EXISTS item_brand (
-	brand_id INT PRIMARY KEY,
+CREATE TABLE item_brand (
+	brand_id VARCHAR (36) PRIMARY KEY,
 	brand_name VARCHAR (255) NOT NULL
 );
-CREATE TABLE IF NOT EXISTS items (
-	item_id INT PRIMARY KEY,
+CREATE TABLE items (
+	item_id VARCHAR (36) PRIMARY KEY,
 	name VARCHAR (45) NOT NULL,
-	brand_id INT NOT NULL,
-	category_id INT NOT NULL,
+	brand_id VARCHAR (36) NOT NULL,
+	category_id VARCHAR (36) NOT NULL,
 	size INT NOT NULL,
 	FOREIGN KEY (category_id)
         REFERENCES category (category_id)
@@ -30,8 +29,8 @@ CREATE TABLE IF NOT EXISTS items (
         REFERENCES item_brand (brand_id)
         ON DELETE CASCADE ON UPDATE CASCADE
 );
-CREATE TABLE IF NOT EXISTS customer (
-	customer_id INT PRIMARY KEY,
+CREATE TABLE customer (
+	customer_id VARCHAR (36) PRIMARY KEY,
 	first_name VARCHAR (255) NOT NULL,
 	last_name VARCHAR (255) NOT NULL,
 	phone VARCHAR (25),
@@ -40,12 +39,12 @@ CREATE TABLE IF NOT EXISTS customer (
 	city VARCHAR (50),
 	zip_code VARCHAR (5)
 );
-CREATE TABLE IF NOT EXISTS orders (
-	order_id INT PRIMARY KEY,
+CREATE TABLE orders (
+	order_id VARCHAR (36) PRIMARY KEY,
 	order_date DATE NOT NULL,
-	item_id INT,
-	worker_id INT NOT NULL,
-	customer_id INT,
+	item_id VARCHAR (36),
+	worker_id VARCHAR (36) NOT NULL,
+	customer_id VARCHAR (36),
 	FOREIGN KEY (item_id)
         REFERENCES items (item_id)
         ON DELETE CASCADE ON UPDATE CASCADE,
