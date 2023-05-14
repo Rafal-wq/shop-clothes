@@ -4,6 +4,8 @@
 
 - ABOUT
 - RUNNING THE APPLICATION
+- RUNNING APPLICATION IN DOCKER
+- JWT
 - DATABASE CONFIGURATION
   - Schema
   - SQL commands
@@ -68,6 +70,30 @@ https://hub.docker.com
 <a ><img src="https://i.ibb.co/6JFrNnP/Docker-compose-up.png" alt=""/></a>
 </p>
 
+## JWT CONFIGURATION
+
+### Running JWT token :
+```
+node jwt/index.js
+```
+### Endpoints of authentication
+Disclaimer : </br>
+Expiration of token is set on one hour and refresh token on 1 hour also.
+#### User login
+- POST</br>
+  Link : http://0.0.0.0:3000/api/login </br>
+
+In JSON insert (POST method) :
+```
+{
+	"email": "test@google.com",
+	"name": "Rafal"
+}
+```
+Data of body above is an example. You can send any data in email and name fields. </br>
+<p>
+<a ><img src="https://i.ibb.co/kh5SNjx/Login.png" alt="Login of new user"/></a>
+</p>
 
 
 
