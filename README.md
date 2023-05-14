@@ -55,6 +55,22 @@ $ node index.js
 ```
 You can also use script contained in package.json file.
 
+#### To run the application in Docker :
+```
+$ docker-compose up
+```
+Disclaimer :
+You need to have the Docker installed.
+If you don't have it, you can get it on :
+https://hub.docker.com
+
+<p>
+<a ><img src="https://i.ibb.co/6JFrNnP/Docker-compose-up.png" alt=""/></a>
+</p>
+
+
+
+
 ## DATABASE CONFIGURATION
 
 ### Schema of database
