@@ -109,6 +109,8 @@ Data of body above is an example. You can send any data in email and name fields
 
 ```
 $
+CREATE DATABASE IF NOT EXISTS `solvd_shop`;
+USE `solvd_shop`;
 CREATE TABLE workers (
 	worker_id VARCHAR (36) PRIMARY KEY,
 	first_name VARCHAR (50) NOT NULL,
