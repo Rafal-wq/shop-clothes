@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS `solvd_shop_docker`;
-USE `solvd_shop_docker`;
+CREATE DATABASE IF NOT EXISTS `solvd_shop`;
+USE `solvd_shop`;
 CREATE TABLE workers (
 	worker_id VARCHAR (36) PRIMARY KEY,
 	first_name VARCHAR (50) NOT NULL,

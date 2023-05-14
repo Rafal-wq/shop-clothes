@@ -1,9 +1,3 @@
-FROM node:18-alpine
-
-COPY package.json .
-
-RUN npm install
-
-COPY . .
-
-CMD ["node", "index.js"]
+FROM mysql:8.0
+ENTRYPOINT ["init.sql"]
+EXPOSE 80
